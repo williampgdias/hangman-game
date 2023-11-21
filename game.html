@@ -14,21 +14,41 @@
 
 <body>
   <section class="game">
-    <aside>
+    <aside class="hangman-img">
       <img src="./assets/images/hangman-0.svg" alt="">
     </aside>
-    <hr>
     <main>
-      <div>
-        <div id="word-box"></div>
+      <div class="word-wrapped">
+        <div id="word-box">
+          M
+        </div>
+        <div id="word-box">
+          o
+        </div>
+        <div id="word-box">
+          u
+        </div>
+        <div id="word-box">
+          s
+        </div>
+        <div id="word-box">
+          e
+        </div>
       </div>
-      <div class="hint">Hint: Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-      <div>Letters</div>
-      <div>
-        <div>Wrong letters</div>
+      <div class="hint">
+        <p>Hint: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </div>
+      </p>
+      <div class="letters-used">
+        <p>Letters</p>
+      </div>
+      <div class="wrong-letters_guesses">
+        <div>Wrong letters: <span></span></div>
         <div>6 guesses</div>
       </div>
-      <div>Reset Button</div>
+      <div>
+        <button>Start again</button>
+      </div>
     </main>
   </section>
 
