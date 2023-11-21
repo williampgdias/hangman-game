@@ -36,11 +36,15 @@ function getRandomWord() {
 // Get a random word
 const randomWord = getRandomWord();
 
+// Create an array to store the letter boxes
+const letterBoxes = [];
+
 // Create empty boxes for each letter in the word
 randomWord.name.split('').forEach((letter) => {
   let letterBox = document.createElement('div');
   letterBox.classList.add('word-box');
   wordBoxWrapped.appendChild(letterBox);
+  letterBoxes.push(letterBox);
 
   console.log(letter); // DO NOT FORGET TO DELETE THIS AFTER!
 });
@@ -49,3 +53,19 @@ randomWord.name.split('').forEach((letter) => {
 let hintParagraph = document.createElement('p');
 hintParagraph.textContent = `Hint: ${randomWord.hint}`;
 hint.appendChild(hintParagraph);
+
+// Check if the character pressed is in the random word
+document.addEventListener('keydown', function (e) {
+  const keyPressed = e.key.toLowerCase();
+  console.log(keyPressed);
+
+  // Check each letter in the word
+  for (let i = 0; i < randomWord.name.length; i++) {
+    const currentLetter = randomWord.name[i];
+
+    // If the pressed key matches a letter, update the corresponding box
+    if (currentLetter === keyPressed) {
+      letterBoxes[i].textContent = keyPressed;
+    }
+  }
+});
