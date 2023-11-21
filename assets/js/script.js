@@ -24,6 +24,8 @@ const words = [
 
 // Selecting the Word wrapped box
 const wordBoxWrapped = document.querySelector('#word-wrapped');
+// Selecting the wrong letters
+const wrongLetter = document.querySelector('.wrong-letters_guesses span');
 // Grabbing the hint and save in the variable
 const hint = document.querySelector('.hint');
 
@@ -54,10 +56,14 @@ let hintParagraph = document.createElement('p');
 hintParagraph.textContent = `Hint: ${randomWord.hint}`;
 hint.appendChild(hintParagraph);
 
+// Track incorrect letters
+let incorrectLetters = [];
+
 // Check if the character pressed is in the random word
 document.addEventListener('keydown', function (e) {
   const keyPressed = e.key.toLowerCase();
-  console.log(keyPressed);
+
+  let charFound = false;
 
   // Check each letter in the word
   for (let i = 0; i < randomWord.name.length; i++) {
@@ -66,6 +72,12 @@ document.addEventListener('keydown', function (e) {
     // If the pressed key matches a letter, update the corresponding box
     if (currentLetter === keyPressed) {
       letterBoxes[i].textContent = keyPressed;
+      charFound = true;
     }
+  }
+
+  if (!charFound && !incorrectLetters.includes(keyPressed)) {
+    incorrectLetters.push(keyPressed);
+    wrongLetter.textContent = `${incorrectLetters.join(' - ')}`;
   }
 });
