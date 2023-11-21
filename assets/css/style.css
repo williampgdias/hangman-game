@@ -1,5 +1,7 @@
+/* Import the font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+/* Default configuration */
 * {
   margin: 0;
   padding: 0;
@@ -7,17 +9,19 @@
 }
 
 body {
-  background-color: #222;
+  background-color: #525252;
   color: #fff;
-}
-
-.welcome {
   font-family: 'Press Start 2P', sans-serif;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+/* Welcome Page */
+.welcome {
+  text-align: center;
 }
 
 .welcome h1 {
@@ -41,6 +45,7 @@ body {
   padding: 15px 25px;
   border-radius: 8px;
   color: inherit;
+  display: inline-block;
   margin-top: 20px;
   font-size: 1rem;
   text-decoration: none;
