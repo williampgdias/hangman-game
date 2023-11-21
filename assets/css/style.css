@@ -59,6 +59,15 @@ button:hover {
 }
 
 /* Game page */
+.title {
+  margin-bottom: 90px;
+  text-transform: capitalize;
+  border-bottom: 5px solid #fff;
+  width: 90%;
+  text-align: center;
+  padding-bottom: 25px;
+}
+
 .game {
   max-width: 1000px;
   color: #fff;
@@ -69,6 +78,13 @@ button:hover {
 
 main {
   padding: 0 50px;
+}
+
+.game-over {
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  color: #ff0000;
+  display: none;
 }
 
 .hangman-img {
@@ -86,7 +102,7 @@ main {
   border-radius: 4px;
   width: 60px;
   height: 60px;
-  margin: 0 2px;
+  margin: 0 5px;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -95,16 +111,15 @@ main {
   text-transform: lowercase;
 }
 
+.hint {
+  line-height: 1.3rem;
+}
+
 .hint,
 .wrong-letters_guesses {
   letter-spacing: 0.05rem;
   font-size: 0.85rem;
   text-align: left;
-  padding-top: 10px;
-}
-
-.letters-used {
-  font-size: 0.9rem;
   padding-top: 10px;
 }
 
