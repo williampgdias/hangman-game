@@ -100,14 +100,21 @@ btnInput.addEventListener('click', function () {
         guessesNumber.style.color = 'red';
       });
 
-      // Stop the blinking after 250 milliseconds
+      // Stop the blinking after 200 milliseconds
       setTimeout(() => {
         clearInterval(blinkInterval);
         guessesNumber.style.color = 'white';
       }, 200);
     } else {
       guessesNumber.textContent = 6;
+      // Chang the 'display' to block and show the GAME OVER message!
       gameOver.style.display = 'block';
+
+      // Disable the input Text, so the user can't add letter anymore.
+      letterInput.disabled = true;
+      letterInput.classList.add('disabled');
+      btnInput.disabled = true;
+      btnInput.classList.add('disabled');
     }
   }
 });

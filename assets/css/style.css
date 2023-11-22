@@ -147,11 +147,16 @@ main {
   font-size: 0.85rem;
 }
 
-.input-block input {
+.input-letter {
   font-size: 1.3rem;
   color: #fff;
   font-family: inherit;
   text-align: center;
+  background-color: transparent;
+  border: 3px solid #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
 }
 
 .input-block input:focus {
@@ -169,10 +174,9 @@ main {
   justify-content: space-between;
 }
 
-.input-letter {
-  background-color: transparent;
-  border: 3px solid #fff;
-  width: 60px;
-  height: 60px;
-  border-radius: 4px;
+.disabled {
+  background-color: #81818142;
+  border: none;
+  color: #818181;
+  cursor: not-allowed;
 }
