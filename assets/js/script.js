@@ -106,6 +106,18 @@ function clearBoxes() {
   letterBoxes = [];
 }
 
+// Setting logic to change the picture when you miss the guess
+function changeImage() {
+  let img = hangmanImg;
+  let maxGuesses = 7;
+
+  if (guesses < maxGuesses) {
+    let i = guesses;
+
+    img.src = `./assets/images/hangman-${i}.svg`;
+  }
+}
+
 // Get a random word
 let randomWord = getRandomWord();
 
@@ -140,9 +152,11 @@ btnInput.addEventListener('click', function () {
     wrongLetter.textContent = `${incorrectLetters.join(' - ')}`;
 
     // Checking if the user still have guesses available
-    if (guesses < 5) {
+    if (guesses < 6) {
       guesses++;
       guessesNumber.textContent = guesses;
+
+      changeImage();
 
       // Blink effect using setInterval
       const blinkInterval = setInterval(() => {
@@ -179,5 +193,3 @@ letterInput.addEventListener('keydown', function (e) {
 restartButton.addEventListener('click', function () {
   resetGame();
 });
-
-//
