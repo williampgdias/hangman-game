@@ -38,7 +38,7 @@ const letterBoxes = [];
 // Track incorrect letters
 let incorrectLetters = [];
 // Setting the number of guesses
-let guesses = 6;
+let guesses = 0;
 
 // Function to get a random word
 function getRandomWord() {
@@ -68,31 +68,45 @@ hint.appendChild(hintParagraph);
 document.addEventListener('keydown', function (e) {
   const keyPressed = e.key.toLowerCase();
 
-  let charFound = false;
+  // Check if the pressed key is alphabetical character
+  if (/^[a-z]$/.test(keyPressed)) {
+    let charFound = false;
 
-  // Check each letter in the word
-  for (let i = 0; i < randomWord.name.length; i++) {
-    const currentLetter = randomWord.name[i];
+    // Check each letter in the word
+    for (let i = 0; i < randomWord.name.length; i++) {
+      const currentLetter = randomWord.name[i];
 
-    // If the pressed key matches a letter, update the corresponding box
-    if (currentLetter === keyPressed) {
-      letterBoxes[i].textContent = keyPressed;
-      charFound = true;
+      // If the pressed key matches a letter, update the corresponding box
+      if (currentLetter === keyPressed) {
+        letterBoxes[i].textContent = keyPressed;
+        charFound = true;
+      }
     }
-  }
 
-  // If the pressed key is not in the word, add to incorrectLetters array and show in the screen.
-  if (!charFound && !incorrectLetters.includes(keyPressed)) {
-    incorrectLetters.push(keyPressed);
-    wrongLetter.textContent = `${incorrectLetters.join(' - ')}`;
+    // If the pressed key is not in the word, add to incorrectLetters array and show in the screen.
+    if (!charFound && !incorrectLetters.includes(keyPressed)) {
+      incorrectLetters.push(keyPressed);
+      wrongLetter.textContent = `${incorrectLetters.join(' - ')}`;
 
-    // Checking if the user still have guesses available
-    if (guesses > 1) {
-      guesses--;
-      guessesNumber.textContent = guesses;
-    } else {
-      guessesNumber.textContent = 0;
-      gameOver.style.display = 'block';
+      // Checking if the user still have guesses available
+      if (guesses < 5) {
+        guesses++;
+        guessesNumber.textContent = guesses;
+
+        // Blink effect using setInterval
+        const blinkInterval = setInterval(() => {
+          guessesNumber.style.color = 'red';
+        });
+
+        // Stop the blinking after 250 milliseconds
+        setTimeout(() => {
+          clearInterval(blinkInterval);
+          guessesNumber.style.color = 'white';
+        }, 200);
+      } else {
+        guessesNumber.textContent = 6;
+        gameOver.style.display = 'block';
+      }
     }
   }
 });
