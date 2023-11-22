@@ -36,9 +36,13 @@ const gameOver = document.querySelector('.game-over');
 let letterInput = document.querySelector('#input-letter');
 // Selecting the input button
 const btnInput = document.querySelector('#btn-input');
+// Selecting the restart button
+const restartButton = document.querySelector('#btn-restart');
+// Selecting the hangman image
+let hangmanImg = document.querySelector('.hangman-img img');
 
 // Create an array to store the letter boxes
-const letterBoxes = [];
+let letterBoxes = [];
 // Track incorrect letters
 let incorrectLetters = [];
 // Setting the number of guesses
@@ -50,18 +54,63 @@ function getRandomWord() {
   return words[randomIndex];
 }
 
-// Get a random word
-const randomWord = getRandomWord();
+// Function to reset the game
+function resetGame() {
+  // Reset the wrong letters
+  incorrectLetters = [];
+  wrongLetter.textContent = '';
+
+  // Reset number of guesses
+  guesses = 0;
+  guessesNumber.textContent = guesses;
+
+  // Reset the Game Over message
+  gameOver.style.display = 'none';
+
+  // Reset input box and button Enter
+  letterInput.disabled = false;
+  letterInput.classList.remove('disabled');
+  btnInput.disabled = false;
+  btnInput.classList.remove('disabled');
+
+  // Setting a new word
+  const newRandomWord = getRandomWord();
+
+  // Updating the hint and word boxes for the new word
+  hintParagraph.textContent = `Hint: ${newRandomWord.hint}`;
+
+  // Clear existing boxes
+  clearBoxes();
+
+  // Create new Boxes for the new word
+  createBoxes(newRandomWord);
+
+  // Assign the new random word
+  randomWord = newRandomWord;
+}
 
 // Create empty boxes for each letter in the word
-randomWord.name.split('').forEach((letter) => {
-  let letterBox = document.createElement('div');
-  letterBox.classList.add('word-box');
-  wordBoxWrapped.appendChild(letterBox);
-  letterBoxes.push(letterBox);
+function createBoxes(random) {
+  random.name.split('').forEach((letter) => {
+    let letterBox = document.createElement('div');
+    letterBox.classList.add('word-box');
+    wordBoxWrapped.appendChild(letterBox);
+    letterBoxes.push(letterBox);
 
-  console.log(letter); // DO NOT FORGET TO DELETE THIS AFTER!
-});
+    console.log(letter); // DO NOT FORGET TO DELETE THIS AFTER!
+  });
+}
+
+function clearBoxes() {
+  wordBoxWrapped.innerHTML = '';
+  letterBoxes = [];
+}
+
+// Get a random word
+let randomWord = getRandomWord();
+
+// Calling the function to create the boxes.
+createBoxes(randomWord);
 
 // Setting the hint to the HTML
 let hintParagraph = document.createElement('p');
@@ -125,3 +174,10 @@ letterInput.addEventListener('keydown', function (e) {
     btnInput.click();
   }
 });
+
+// Setting Event Listener for Reset the game
+restartButton.addEventListener('click', function () {
+  resetGame();
+});
+
+//
