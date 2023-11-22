@@ -32,6 +32,10 @@ const hint = document.querySelector('.hint');
 let guessesNumber = document.querySelector('.guess-number');
 // Selecting the Game Over
 const gameOver = document.querySelector('.game-over');
+// Selecting the input
+let letterInput = document.querySelector('#input-letter');
+// Selecting the input button
+const btnInput = document.querySelector('#btn-input');
 
 // Create an array to store the letter boxes
 const letterBoxes = [];
@@ -64,49 +68,53 @@ let hintParagraph = document.createElement('p');
 hintParagraph.textContent = `Hint: ${randomWord.hint}`;
 hint.appendChild(hintParagraph);
 
-// Check if the character pressed is in the random word
-document.addEventListener('keydown', function (e) {
-  const keyPressed = e.key.toLowerCase();
+// Grab the input and check if the letter is in the word
+btnInput.addEventListener('click', function () {
+  originalInputValue = letterInput.value;
+  letterInput.value = '';
+  let charFound = false;
 
-  // Check if the pressed key is alphabetical character
-  if (/^[a-z]$/.test(keyPressed)) {
-    let charFound = false;
+  // Check each letter in the word
+  for (let i = 0; i < randomWord.name.length; i++) {
+    const currentLetter = randomWord.name[i];
 
-    // Check each letter in the word
-    for (let i = 0; i < randomWord.name.length; i++) {
-      const currentLetter = randomWord.name[i];
-
-      // If the pressed key matches a letter, update the corresponding box
-      if (currentLetter === keyPressed) {
-        letterBoxes[i].textContent = keyPressed;
-        charFound = true;
-      }
+    // If the pressed key matches a letter, update the corresponding box
+    if (currentLetter === originalInputValue) {
+      letterBoxes[i].textContent = originalInputValue;
+      charFound = true;
     }
+  }
 
-    // If the pressed key is not in the word, add to incorrectLetters array and show in the screen.
-    if (!charFound && !incorrectLetters.includes(keyPressed)) {
-      incorrectLetters.push(keyPressed);
-      wrongLetter.textContent = `${incorrectLetters.join(' - ')}`;
+  // If the pressed key is not in the word, add to incorrectLetters array and show in the screen.
+  if (!charFound && !incorrectLetters.includes(originalInputValue)) {
+    incorrectLetters.push(originalInputValue);
+    wrongLetter.textContent = `${incorrectLetters.join(' - ')}`;
 
-      // Checking if the user still have guesses available
-      if (guesses < 5) {
-        guesses++;
-        guessesNumber.textContent = guesses;
+    // Checking if the user still have guesses available
+    if (guesses < 5) {
+      guesses++;
+      guessesNumber.textContent = guesses;
 
-        // Blink effect using setInterval
-        const blinkInterval = setInterval(() => {
-          guessesNumber.style.color = 'red';
-        });
+      // Blink effect using setInterval
+      const blinkInterval = setInterval(() => {
+        guessesNumber.style.color = 'red';
+      });
 
-        // Stop the blinking after 250 milliseconds
-        setTimeout(() => {
-          clearInterval(blinkInterval);
-          guessesNumber.style.color = 'white';
-        }, 200);
-      } else {
-        guessesNumber.textContent = 6;
-        gameOver.style.display = 'block';
-      }
+      // Stop the blinking after 250 milliseconds
+      setTimeout(() => {
+        clearInterval(blinkInterval);
+        guessesNumber.style.color = 'white';
+      }, 200);
+    } else {
+      guessesNumber.textContent = 6;
+      gameOver.style.display = 'block';
     }
+  }
+});
+
+// Event Listener for the input field to handle "Enter" key
+letterInput.addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') {
+    btnInput.click();
   }
 });
