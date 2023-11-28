@@ -82,12 +82,20 @@ main {
   width: 900px;
 }
 
-.game-over {
+.game-over,
+.congrats {
   margin-bottom: 50px;
   text-transform: uppercase;
-  color: #ff0000;
   text-align: center;
   display: none;
+}
+
+.game-over {
+  color: #ff0000;
+}
+
+.congrats {
+  color: green;
 }
 
 .hangman-img {

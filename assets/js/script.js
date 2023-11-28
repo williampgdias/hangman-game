@@ -32,6 +32,8 @@ const hint = document.querySelector('.hint');
 let guessesNumber = document.querySelector('.guess-number');
 // Selecting the Game Over
 const gameOver = document.querySelector('.game-over');
+// Selecting the Congratulations
+const congrats = document.querySelector('.congrats');
 // Selecting the input
 let letterInput = document.querySelector('#input-letter');
 // Selecting the input button
@@ -48,10 +50,19 @@ let incorrectLetters = [];
 // Setting the number of guesses
 let guesses = 0;
 
+function init() {
+  // Calling the function to create the boxes.
+  createBoxes(randomWord);
+}
+
 // Function to get a random word
 function getRandomWord() {
   const randomIndex = Math.floor(Math.random() * words.length);
   return words[randomIndex];
+}
+
+function isWordGuessed() {
+  return letterBoxes.every((box) => box.textContent !== '');
 }
 
 // Function to reset the game
@@ -64,8 +75,9 @@ function resetGame() {
   guesses = 0;
   guessesNumber.textContent = guesses;
 
-  // Reset the Game Over message
+  // Reset the Game Over or Congrats message
   gameOver.style.display = 'none';
+  congrats.style.display = 'none';
 
   // Reset input box and button Enter
   letterInput.disabled = false;
@@ -121,9 +133,6 @@ function changeImage() {
 // Get a random word
 let randomWord = getRandomWord();
 
-// Calling the function to create the boxes.
-createBoxes(randomWord);
-
 // Setting the hint to the HTML
 let hintParagraph = document.createElement('p');
 hintParagraph.textContent = `Hint: ${randomWord.hint}`;
@@ -146,13 +155,15 @@ btnInput.addEventListener('click', function () {
     }
   }
 
+  console.log(letterBoxes.every((box) => box.textContent !== ''));
+
   // If the pressed key is not in the word, add to incorrectLetters array and show in the screen.
   if (!charFound && !incorrectLetters.includes(originalInputValue)) {
     incorrectLetters.push(originalInputValue);
     wrongLetter.textContent = `${incorrectLetters.join(' - ')}`;
 
     // Checking if the user still have guesses available
-    if (guesses < 6) {
+    if (guesses < 5) {
       guesses++;
       guessesNumber.textContent = guesses;
 
@@ -180,6 +191,14 @@ btnInput.addEventListener('click', function () {
       btnInput.classList.add('disabled');
     }
   }
+
+  if (isWordGuessed()) {
+    congrats.style.display = 'block';
+
+    setTimeout(() => {
+      resetGame();
+    }, 1000);
+  }
 });
 
 // Event Listener for the input field to handle "Enter" key
@@ -193,3 +212,5 @@ letterInput.addEventListener('keydown', function (e) {
 restartButton.addEventListener('click', function () {
   resetGame();
 });
+
+init();
