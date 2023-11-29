@@ -69,6 +69,9 @@ function resetGame() {
   gameOver.style.display = 'none';
   congrats.style.display = 'none';
 
+  // Setting the first image
+  hangmanImg.src = './assets/images/hangman-0.svg';
+
   // Reset input box and button Enter
   letterInput.disabled = false;
   letterInput.classList.remove('disabled');
@@ -174,6 +177,8 @@ btnInput.addEventListener('click', function () {
       // Change the 'display' to block and show the GAME OVER message!
       gameOver.style.display = 'block';
 
+      hangmanImg.src = './assets/images/hangman-6.svg';
+
       // Disable the input Text, so the user can't add letter anymore.
       letterInput.disabled = true;
       letterInput.classList.add('disabled');
@@ -189,7 +194,7 @@ btnInput.addEventListener('click', function () {
     // The game resets after 1 second
     setTimeout(() => {
       resetGame();
-    }, 1000);
+    }, 1200);
   }
 });
 
