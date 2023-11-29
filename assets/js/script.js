@@ -22,26 +22,16 @@ const words = [
   },
 ];
 
-// Selecting the Word wrapped box
-const wordBoxWrapped = document.querySelector('#word-wrapped');
-// Selecting the wrong letters
-const wrongLetter = document.querySelector('.wrong-letters');
-// Selecting the hint and save in the variable
-const hint = document.querySelector('.hint');
-// Selecting the number of guesses
-let guessesNumber = document.querySelector('.guess-number');
-// Selecting the Game Over
-const gameOver = document.querySelector('.game-over');
-// Selecting the Congratulations
-const congrats = document.querySelector('.congrats');
-// Selecting the input
-let letterInput = document.querySelector('#input-letter');
-// Selecting the input button
-const btnInput = document.querySelector('#btn-input');
-// Selecting the restart button
-const restartButton = document.querySelector('#btn-restart');
-// Selecting the hangman image
-let hangmanImg = document.querySelector('.hangman-img img');
+const wordBoxWrapped = document.querySelector('#word-wrapped'); // Selecting the Word wrapped box
+const wrongLetter = document.querySelector('.wrong-letters'); // Selecting the wrong letters
+const hint = document.querySelector('.hint'); // Selecting the hint and save in the variable
+const gameOver = document.querySelector('.game-over'); // Selecting the Game Over
+const congrats = document.querySelector('.congrats'); // Selecting the Congratulations
+const btnInput = document.querySelector('#btn-input'); // Selecting the input button
+const restartButton = document.querySelector('#btn-restart'); // Selecting the restart button
+let guessesNumber = document.querySelector('.guess-number'); // Selecting the number of guesses
+let letterInput = document.querySelector('#input-letter'); // Selecting the input
+let hangmanImg = document.querySelector('.hangman-img img'); // Selecting the hangman image
 
 // Create an array to store the letter boxes
 let letterBoxes = [];
@@ -177,11 +167,11 @@ btnInput.addEventListener('click', function () {
       // Stop the blinking after 200 milliseconds
       setTimeout(() => {
         clearInterval(blinkInterval);
-        guessesNumber.style.color = 'white';
+        guessesNumber.style.color = 'black';
       }, 200);
     } else {
       guessesNumber.textContent = 6;
-      // Chang the 'display' to block and show the GAME OVER message!
+      // Change the 'display' to block and show the GAME OVER message!
       gameOver.style.display = 'block';
 
       // Disable the input Text, so the user can't add letter anymore.
@@ -192,9 +182,11 @@ btnInput.addEventListener('click', function () {
     }
   }
 
+  // If the user guess the word, show the congrats message
   if (isWordGuessed()) {
     congrats.style.display = 'block';
 
+    // The game resets after 1 second
     setTimeout(() => {
       resetGame();
     }, 1000);
