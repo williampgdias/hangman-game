@@ -32,6 +32,9 @@ const restartButton = document.querySelector('#btn-restart'); // Selecting the r
 let guessesNumber = document.querySelector('.guess-number'); // Selecting the number of guesses
 let letterInput = document.querySelector('#input-letter'); // Selecting the input
 let hangmanImg = document.querySelector('.hangman-img img'); // Selecting the hangman image
+let modal = document.getElementById('instructions-modal'); // Selecting the modal
+let modalBtn = document.getElementById('instructions-button'); // Selecting the modal button
+let modalClose = document.getElementsByClassName('close')[0]; // Selecting the <span> element that closes the modal
 
 // Create an array to store the letter boxes
 let letterBoxes = [];
@@ -208,6 +211,23 @@ letterInput.addEventListener('keydown', function (e) {
 // Setting Event Listener for Reset the game
 restartButton.addEventListener('click', function () {
   resetGame();
+});
+
+// When the user clicks the Instructions button, open the modal
+modalBtn.addEventListener('click', function () {
+  modal.style.display = 'block';
+});
+
+// When the user clicks on X, close the modal
+modalClose.addEventListener('click', function () {
+  modal.style.display = 'none';
+});
+
+// When the user clocks anywhere outside of the modal, close it
+window.addEventListener('click', function (e) {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
 });
 
 init();
