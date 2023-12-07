@@ -29,28 +29,6 @@ body {
   padding-bottom: 25px;
 }
 
-/* Welcome Page */
-.welcome {
-  text-align: center;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.welcome .title {
-  font-size: 2rem;
-  letter-spacing: 0.15rem;
-  width: 100%;
-}
-
-.welcome p {
-  /* padding: 10px 200px; */
-  line-height: 1.3rem;
-  text-align: center;
-  font-size: 1rem;
-  max-width: 900px;
-  margin: auto;
-}
-
 .button,
 button {
   font-family: 'Press Start 2P', sans-serif;
@@ -73,7 +51,7 @@ button:hover {
 
 /* Game page */
 .game {
-  max-width: 1400px;
+  width: 100%;
   flex-wrap: wrap;
   color: inherit;
   display: flex;
@@ -183,7 +161,10 @@ main {
 .btn-input-div {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+}
+
+#btn-restart {
+  margin-left: 20px;
 }
 
 .disabled {
@@ -194,8 +175,12 @@ main {
 }
 
 /* Modal */
+aside .button {
+  margin-top: 50px;
+}
+
 .modal {
-  /* display: none; */
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -224,7 +209,7 @@ main {
 
 /* Close button */
 .close {
-  color: #fff;
+  color: #ccc;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -232,7 +217,7 @@ main {
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: #fff;
   text-decoration: none;
   cursor: pointer;
 }
