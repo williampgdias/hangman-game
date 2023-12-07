@@ -36,7 +36,7 @@
 
         <div class="input-block">
           <label for="letter">guess the letter:</label>
-          <input name="letter" id="input-letter" type="text" class="input-letter">
+          <input name="letter" id="input-letter" type="text" class="input-letter" maxlength="1">
           <button id="btn-input">Enter</button>
         </div>
         <div>
@@ -44,33 +44,34 @@
         </div>
       </div>
     </main>
+  </section>
 
-    <aside>
-      <a class="button" id="instructions-button">Instructions</a>
+  <aside>
+    <a class="button" id="instructions-button">Instructions</a>
 
-      <!-- Modal -->
-      <div id="instructions-modal" class="modal">
+    <!-- Modal -->
+    <div id="instructions-modal" class="modal">
 
-        <!-- Modal content -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="close">&times;</span>
-            <h3>Instructions</h3>
-          </div>
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h3>Instructions</h3>
+        </div>
 
-          <!-- Modal Body -->
-          <div class="modal-body">
-            <p>This is a classic game that you have to guess the hidden word!
-              <br>
-              The objective is guess all the letters correctly before the hangman is complete.<br>
-              You have <span>6 guesses</span>, so use wisely.<br>
-              Good Luck!
-            </p>
-          </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <p>This is a classic game that you have to guess the hidden word!
+            <br>
+            The objective is guess all the letters correctly before the hangman is complete.<br>
+            You have <span>6 guesses</span>, so use wisely.<br>
+            Good Luck!
+          </p>
         </div>
       </div>
-    </aside>
-  </section>
+    </div>
+  </aside>
+
 
   <!-- Import JavaScript file -->
   <script src="./assets/js/script.js"></script>
