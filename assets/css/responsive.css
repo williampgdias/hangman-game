@@ -1,0 +1,42 @@
+@media screen and (max-width: 940px) {
+  /* Welcome page */
+  .welcome .title {
+    font-size: 1.8rem;
+    line-height: 2rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 50px;
+  }
+  .welcome p {
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
+
+  /* Game page */
+  .hangman-img img {
+    /* max-width: 200px; */
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* Welcome page */
+  .welcome h1 {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .welcome p {
+    line-height: 1.3rem;
+    font-size: 1rem;
+  }
+  .welcome .button {
+    font-size: 0.8rem;
+    padding: 10px 20px;
+  }
+
+  /* Game page */
+  .hangman-img img {
+    /* height: 200px; */
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/images/favicon.svg" type="image/x-icon">
+
+  <!-- Import CSS file -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- Responsive File -->
+  <link rel="stylesheet" href="./assets/css/responsive.css">
+
+  <!-- Title -->
+  <title>Hangman - Game</title>
+</head>
+
+<body>
+  <section class="game">
+    <h1 class="title">hangman game</h1>
+    <aside class="hangman-img">
+      <img src="./assets/images/hangman-0.svg" alt="">
+    </aside>
+    <main>
+      <h2 class="game-over">game over!</h2>
+      <h2 class="congrats">Congratulations!!</h2>
+      <div id="word-wrapped"></div>
+      <div class="hint"></div>
+      <div class="wrong-letters_guesses">
+        <div>Wrong letters: <span class="wrong-letters"></span></div>
+        <div><span class="guess-number">0</span> / 6 guesses</div>
+      </div>
+      <div class="btn-input-div">
+
+        <div class="input-block">
+          <label for="letter">guess the letter:</label>
+          <input name="letter" id="input-letter" type="text" class="input-letter">
+          <button id="btn-input">Enter</button>
+        </div>
+        <div>
+          <button id="btn-restart">Start again</button>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <!-- Import JavaScript file -->
+  <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>
