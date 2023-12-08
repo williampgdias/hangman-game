@@ -1,6 +1,7 @@
 // Import words.js
 import { words } from './words.js';
 
+// Selecting all the elements from index.html
 const wrongLetter = document.getElementsByClassName('wrong-letters')[0]; // Selecting the wrong letters
 const hint = document.getElementsByClassName('hint')[0]; // Selecting the hint and save in the variable
 const gameOver = document.getElementsByClassName('game-over')[0]; // Selecting the Game Over
@@ -21,10 +22,12 @@ let letterBoxes = []; // Create an array to store the letter boxes
 let incorrectLetters = []; // Track incorrect letters
 let guesses = 0; // Setting the number of guesses
 let originalInputValue; // Declaring originalInputValue
+let randomWord = getRandomWord(); // Get a random word
 
 function init() {
   // Calling the function to create the boxes.
   createBoxes(randomWord);
+  hintParagraph();
 }
 
 // Check if the input contains only alphabetic characters
@@ -149,13 +152,11 @@ function handleGuessResult() {
   }
 }
 
-// Get a random word
-let randomWord = getRandomWord();
-
-// Setting the hint to the HTML
-let hintParagraph = document.createElement('p');
-hintParagraph.textContent = `Hint: ${randomWord.hint}`;
-hint.appendChild(hintParagraph);
+function hintParagraph() {
+  let hintParagraph = document.createElement('p');
+  hintParagraph.textContent = `Hint: ${randomWord.hint}`;
+  hint.appendChild(hintParagraph);
+}
 
 // Grab the input and check if the letter is in the word
 btnInput.addEventListener('click', function () {
