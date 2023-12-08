@@ -40,4 +40,24 @@ export const words = [
     name: 'germany',
     hint: 'Known for sausages, beer, and the Autobahn.',
   },
+  {
+    name: 'argentina',
+    hint: 'Known for tango, beef, and the southernmost city in the world.',
+  },
+  {
+    name: 'egypt',
+    hint: 'Home to the pyramids, Sphinx, and the Nile River.',
+  },
+  {
+    name: 'nigeria',
+    hint: 'The most populous country in Africa, known for diverse cultures and Nollywood.',
+  },
+  {
+    name: 'Sweden',
+    hint: 'Famous for ABBA, Volvo, and beautiful landscapes.',
+  },
+  {
+    name: 'turkey',
+    hint: 'Bridge between Europe and Asia, known for kebabs, baklava, and historical sites.',
+  },
 ];
