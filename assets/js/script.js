@@ -1,40 +1,19 @@
-// Words array
-const words = [
-  {
-    name: 'mouse',
-    hint: 'Allows you to interact with the digital world by moving and clicking.',
-  },
-  {
-    name: 'keyboard',
-    hint: 'Input device that consists of a set of keys, each with a specific function.',
-  },
-  {
-    name: 'monitor',
-    hint: 'Computer peripheral that displays visual information, making it possible for users to see images and videos.',
-  },
-  {
-    name: 'bluetooth',
-    hint: 'Wireless technology, named after a medieval king known for uniting people.',
-  },
-  {
-    name: 'software',
-    hint: 'These digital instructions and programs tell your computer or device how to perform tasks.',
-  },
-];
+// Import words.js
+import { words } from './words.js';
 
-const wordBoxWrapped = document.querySelector('#word-wrapped'); // Selecting the Word wrapped box
-const wrongLetter = document.querySelector('.wrong-letters'); // Selecting the wrong letters
-const hint = document.querySelector('.hint'); // Selecting the hint and save in the variable
-const gameOver = document.querySelector('.game-over'); // Selecting the Game Over
-const congrats = document.querySelector('.congrats'); // Selecting the Congratulations
-const btnInput = document.querySelector('#btn-input'); // Selecting the input button
-const restartButton = document.querySelector('#btn-restart'); // Selecting the restart button
-let guessesNumber = document.querySelector('.guess-number'); // Selecting the number of guesses
-let letterInput = document.querySelector('#input-letter'); // Selecting the input
+const wrongLetter = document.getElementsByClassName('wrong-letters')[0]; // Selecting the wrong letters
+const hint = document.getElementsByClassName('hint')[0]; // Selecting the hint and save in the variable
+const gameOver = document.getElementsByClassName('game-over')[0]; // Selecting the Game Over
+const congrats = document.getElementsByClassName('congrats')[0]; // Selecting the Congratulations
+const wordBoxWrapped = document.getElementById('word-wrapped'); // Selecting the Word wrapped box
+const btnInput = document.getElementById('btn-input'); // Selecting the input button
+const restartButton = document.getElementById('btn-restart'); // Selecting the restart button
+let guessesNumber = document.getElementsByClassName('guess-number')[0]; // Selecting the number of guesses
 let hangmanImg = document.querySelector('.hangman-img img'); // Selecting the hangman image
+let modalClose = document.getElementsByClassName('close')[0]; // Selecting the <span> element that closes the modal
+let letterInput = document.getElementById('input-letter'); // Selecting the input
 let modal = document.getElementById('instructions-modal'); // Selecting the modal
 let modalBtn = document.getElementById('instructions-button'); // Selecting the modal button
-let modalClose = document.getElementsByClassName('close')[0]; // Selecting the <span> element that closes the modal
 
 // Create an array to store the letter boxes
 let letterBoxes = [];
@@ -42,6 +21,8 @@ let letterBoxes = [];
 let incorrectLetters = [];
 // Setting the number of guesses
 let guesses = 0;
+// Declaring originalInputValue
+let originalInputValue;
 
 function init() {
   // Calling the function to create the boxes.
@@ -150,8 +131,6 @@ btnInput.addEventListener('click', function () {
       charFound = true;
     }
   }
-
-  console.log(letterBoxes.every((box) => box.textContent !== ''));
 
   // If the pressed key is not in the word, add to incorrectLetters array and show in the screen.
   if (!charFound && !incorrectLetters.includes(originalInputValue)) {
