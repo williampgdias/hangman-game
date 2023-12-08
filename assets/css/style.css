@@ -107,6 +107,7 @@ main {
 
 .hint {
   line-height: 1.3rem;
+  display: none;
 }
 
 .hint,

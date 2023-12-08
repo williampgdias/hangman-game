@@ -52,6 +52,7 @@ function resetGame() {
   // Reset the Game Over or Congrats message
   gameOver.style.display = 'none';
   congrats.style.display = 'none';
+  hint.style.display = 'none';
 
   // Setting the first image
   hangmanImg.src = './assets/images/hangman-0.svg';
@@ -154,6 +155,10 @@ btnInput.addEventListener('click', function () {
         clearInterval(blinkInterval);
         guessesNumber.style.color = 'black';
       }, 200);
+
+      if (guesses === 3) {
+        hint.style.display = 'block';
+      }
     } else {
       guessesNumber.textContent = 6;
       // Change the 'display' to block and show the GAME OVER message!
