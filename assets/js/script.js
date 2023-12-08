@@ -32,6 +32,7 @@ function getRandomWord() {
   return words[randomIndex];
 }
 
+// Function to see if the user wins.
 function isWordGuessed() {
   return letterBoxes.every((box) => box.textContent !== '');
 }
@@ -76,11 +77,10 @@ function createBoxes(random) {
     letterBox.classList.add('word-box');
     wordBoxWrapped.appendChild(letterBox);
     letterBoxes.push(letterBox);
-
-    console.log(letter); // DO NOT FORGET TO DELETE THIS AFTER!
   });
 }
 
+// Function to clear the boxes
 function clearBoxes() {
   wordBoxWrapped.innerHTML = '';
   letterBoxes = [];
@@ -182,7 +182,7 @@ letterInput.addEventListener('keydown', function (e) {
   }
 });
 
-// Setting Event Listener for Reset the game
+// Setting Event Listener to Reset the game
 restartButton.addEventListener('click', function () {
   resetGame();
 });
