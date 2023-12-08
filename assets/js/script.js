@@ -98,6 +98,43 @@ function changeImage() {
   }
 }
 
+function handleGuessResult() {
+  // Checking if the user still have guesses available
+  if (guesses < 5) {
+    guesses++;
+    guessesNumber.textContent = guesses;
+
+    changeImage();
+
+    // Blink effect using setInterval
+    const blinkInterval = setInterval(() => {
+      guessesNumber.style.color = 'red';
+    });
+
+    // Stop the blinking after 200 milliseconds
+    setTimeout(() => {
+      clearInterval(blinkInterval);
+      guessesNumber.style.color = 'black';
+    }, 200);
+
+    if (guesses === 3) {
+      hint.style.display = 'block';
+    }
+  } else {
+    guessesNumber.textContent = 6;
+    // Change the 'display' to block and show the GAME OVER message!
+    gameOver.style.display = 'block';
+
+    hangmanImg.src = './assets/images/hangman-6.svg';
+
+    // Disable the input Text, so the user can't add letter anymore.
+    letterInput.disabled = true;
+    letterInput.classList.add('disabled');
+    btnInput.disabled = true;
+    btnInput.classList.add('disabled');
+  }
+}
+
 // Get a random word
 let randomWord = getRandomWord();
 
@@ -128,40 +165,7 @@ btnInput.addEventListener('click', function () {
     incorrectLetters.push(originalInputValue);
     wrongLetter.textContent = `${incorrectLetters.join(' - ')}`;
 
-    // Checking if the user still have guesses available
-    if (guesses < 5) {
-      guesses++;
-      guessesNumber.textContent = guesses;
-
-      changeImage();
-
-      // Blink effect using setInterval
-      const blinkInterval = setInterval(() => {
-        guessesNumber.style.color = 'red';
-      });
-
-      // Stop the blinking after 200 milliseconds
-      setTimeout(() => {
-        clearInterval(blinkInterval);
-        guessesNumber.style.color = 'black';
-      }, 200);
-
-      if (guesses === 3) {
-        hint.style.display = 'block';
-      }
-    } else {
-      guessesNumber.textContent = 6;
-      // Change the 'display' to block and show the GAME OVER message!
-      gameOver.style.display = 'block';
-
-      hangmanImg.src = './assets/images/hangman-6.svg';
-
-      // Disable the input Text, so the user can't add letter anymore.
-      letterInput.disabled = true;
-      letterInput.classList.add('disabled');
-      btnInput.disabled = true;
-      btnInput.classList.add('disabled');
-    }
+    handleGuessResult();
   }
 
   // If the user guess the word, show the congrats message
