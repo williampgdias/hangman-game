@@ -171,11 +171,6 @@ btnInput.addEventListener('click', function () {
   // If the user guess the word, show the congrats message
   if (isWordGuessed()) {
     congrats.style.display = 'block';
-
-    // The game resets after 1 second
-    setTimeout(() => {
-      resetGame();
-    }, 1200);
   }
 });
 
