@@ -39,43 +39,36 @@ function isWordGuessed() {
   return letterBoxes.every((box) => box.textContent !== '');
 }
 
-// Function to reset the game
+/**
+ * This function reset everything in the game to the user guess the word again.
+ * Everything goes to the default configs.
+ */
 function resetGame() {
-  // Reset the wrong letters
   incorrectLetters = [];
   wrongLetter.textContent = '';
 
-  // Reset number of guesses
   guesses = 0;
   guessesNumber.textContent = guesses;
 
-  // Reset the Game Over or Congrats message
   gameOver.style.display = 'none';
   congrats.style.display = 'none';
   hint.style.display = 'none';
 
-  // Setting the first image
   hangmanImg.src = './assets/images/hangman-0.svg';
 
-  // Reset input box and button Enter
   letterInput.disabled = false;
   letterInput.classList.remove('disabled');
   btnInput.disabled = false;
   btnInput.classList.remove('disabled');
 
-  // Setting a new word
   const newRandomWord = getRandomWord();
 
-  // Updating the hint and word boxes for the new word
   hintParagraph.textContent = `Hint: ${newRandomWord.hint}`;
 
-  // Clear existing boxes
   clearBoxes();
 
-  // Create new Boxes for the new word
   createBoxes(newRandomWord);
 
-  // Assign the new random word
   randomWord = newRandomWord;
 }
 
