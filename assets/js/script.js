@@ -11,6 +11,7 @@ const restartButton = document.getElementById('btn-restart'); // Selecting the r
 let guessesNumber = document.getElementsByClassName('guess-number')[0]; // Selecting the number of guesses
 let hangmanImg = document.querySelector('.hangman-img img'); // Selecting the hangman image
 let modalClose = document.getElementsByClassName('close')[0]; // Selecting the <span> element that closes the modal
+let errorLetter = document.getElementsByClassName('error-letter')[0]; // Selecting the <span> element that shows the Alphabetic error
 let letterInput = document.getElementById('input-letter'); // Selecting the input
 let modal = document.getElementById('instructions-modal'); // Selecting the modal
 let modalBtn = document.getElementById('instructions-button'); // Selecting the modal button
@@ -24,6 +25,19 @@ let originalInputValue; // Declaring originalInputValue
 function init() {
   // Calling the function to create the boxes.
   createBoxes(randomWord);
+}
+
+// Check if the input contains only alphabetic characters
+function alphabeticLetters() {
+  const isAlphabetic = /^[a-zA-Z]$/.test(originalInputValue);
+
+  if (!isAlphabetic) {
+    errorLetter.style.display = 'block';
+  } else {
+    errorLetter.style.display = 'none';
+  }
+
+  return isAlphabetic;
 }
 
 // Function to get a random word
@@ -157,11 +171,16 @@ btnInput.addEventListener('click', function () {
     if (currentLetter === originalInputValue) {
       letterBoxes[i].textContent = originalInputValue;
       charFound = true;
+      alphabeticLetters();
     }
   }
 
   // If the pressed key is not in the word, add to incorrectLetters array and show in the screen.
-  if (!charFound && !incorrectLetters.includes(originalInputValue)) {
+  if (
+    !charFound &&
+    alphabeticLetters() &&
+    !incorrectLetters.includes(originalInputValue)
+  ) {
     incorrectLetters.push(originalInputValue);
     wrongLetter.textContent = `${incorrectLetters.join(' - ')}`;
 
