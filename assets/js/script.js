@@ -15,14 +15,11 @@ let letterInput = document.getElementById('input-letter'); // Selecting the inpu
 let modal = document.getElementById('instructions-modal'); // Selecting the modal
 let modalBtn = document.getElementById('instructions-button'); // Selecting the modal button
 
-// Create an array to store the letter boxes
-let letterBoxes = [];
-// Track incorrect letters
-let incorrectLetters = [];
-// Setting the number of guesses
-let guesses = 0;
-// Declaring originalInputValue
-let originalInputValue;
+// Declaring the default variables;
+let letterBoxes = []; // Create an array to store the letter boxes
+let incorrectLetters = []; // Track incorrect letters
+let guesses = 0; // Setting the number of guesses
+let originalInputValue; // Declaring originalInputValue
 
 function init() {
   // Calling the function to create the boxes.
