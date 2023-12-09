@@ -23,11 +23,12 @@ let incorrectLetters = []; // Track incorrect letters
 let guesses = 0; // Setting the number of guesses
 let originalInputValue; // Declaring originalInputValue
 let randomWord = getRandomWord(); // Get a random word
+let hintParagraph = document.createElement('p');
 
+// Function to initiate everything that needs when you start the game
 function init() {
-  // Calling the function to create the boxes.
   createBoxes(randomWord);
-  hintParagraph();
+  paragraphHint();
 }
 
 // Check if the input contains only alphabetic characters
@@ -152,8 +153,7 @@ function handleGuessResult() {
   }
 }
 
-function hintParagraph() {
-  let hintParagraph = document.createElement('p');
+function paragraphHint() {
   hintParagraph.textContent = `Hint: ${randomWord.hint}`;
   hint.appendChild(hintParagraph);
 }
