@@ -53,7 +53,7 @@ export const words = [
     hint: 'The most populous country in Africa, known for diverse cultures and Nollywood.',
   },
   {
-    name: 'Sweden',
+    name: 'sweden',
     hint: 'Famous for ABBA, Volvo, and beautiful landscapes.',
   },
   {
