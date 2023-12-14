@@ -32,6 +32,72 @@ Hangman Game is tailored for a diverse audience, appealing to casual gamers, wor
 
 - **Educational Entertainment:** While primarily a source of entertainment, Hangman Game also serves as an enjoyable educational tool, enhancing vocabulary and cognitive skills.
 
+## Testing
+
+In this section, you will find details about the testing conducted to ensure the reliability and functionality of Hangman Game.
+
+### Functional Testing
+
+Hangman Game has undergone thorough functional testing to ensure that all features work as intended.
+
+#### The Gameplay:
+
+- Engaged in multiple rounds of gameplay to assess the word-guessing mechanism.
+
+  ![New Word #1](assets/screenshots/new-word-1.png)
+  ![New Word #2](assets/screenshots/new-word-2.png)
+  ![New Word #3](assets/screenshots/new-word-3.png)
+
+  <br>
+
+- Verified that selecting letters influences the progress and outcome of the game.
+  <br>
+
+  ![Right letter #1](assets/screenshots/right-letter-1.png)
+
+  <br>
+  <br>
+
+- Ensured that the game responds appropriately to correct and incorrect letter guesses.
+
+  ![Correct and Incorrect letter](assets/screenshots/wrong-letter-1.png)
+
+#### Wrong Guesses Tracking:
+
+- Deliberately inputted incorrect letters to validate the tracking of wrong guesses.
+- Confirmed that the system accurately counts and displays the number of incorrect attempts.
+- Checked for the correct implementation of hangman progression with each wrong guess.
+
+  ![Correct and Incorrect letter](assets/screenshots/wrong-letter-2.png)
+
+#### Losing Game:
+
+- Purposefully made repeated incorrect guesses to experience the losing scenario.
+- Confirmed that the game concludes appropriately when the maximum allowed incorrect attempts are reached.
+- Verified that the losing screen and message is displayed clearly and effectively.
+
+  ![Losing the game](assets/screenshots/lose-the-game.png)
+
+#### Winning Game:
+
+- Successfully guessed the word in multiple rounds to validate the winning scenario.
+- Confirmed that the game concludes appropriately when the word is guessed correctly.
+- Verified that the winning screen and message is displayed clearly and effectively.
+
+  ![Wining the game](assets/screenshots/win-the-game.png)
+
+### Overall Impressions
+
+The gameplay, wrong guesses tracking, and the winning/losing scenarios have been thoroughly tested, ensuring a robust and enjoyable user experience. The system responds as expected, providing engaging feedback throughout the gaming process.
+
+These tests contribute to the confidence that Hangman Game delivers a reliable and functional gaming experience for players of all skill levels.
+
+and other core functionalities have been rigorously tested to provide an easy and straightforward experience for users.
+
+### Cross-Browser and Responsive Testing
+
+The project has been tested on various browsers, including Chrome, Firefox, Safari, and Edge, to ensure compatibility. Additionally, Hangman Game has been designed with responsiveness in mind, and testing has been conducted on different screen sizes to guarantee a seamless experience across devices.
+
 ## How to Play
 
 To embark on a journey of word discovery, simply visit the [Hangman Game website](https://williampgdias.github.io/hangman-game/) and follow the instructions provided to start playing. Enjoy the challenge, have fun, and may the words be ever in your favor!
