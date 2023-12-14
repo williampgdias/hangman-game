@@ -13,7 +13,7 @@ let guessesNumber = document.getElementsByClassName('guess-number')[0]; // Selec
 let hangmanImg = document.querySelector('.hangman-img img'); // Selecting the hangman image
 let modalClose = document.getElementsByClassName('close')[0]; // Selecting the <span> element that closes the modal
 let errorLetter = document.getElementsByClassName('error-letter')[0]; // Selecting the <span> element that shows the Alphabetic error
-let letterInput = document.getElementById('input-letter'); // Selecting the input
+let letterInput = document.getElementsByClassName('input-letter')[0]; // Selecting the input
 let modal = document.getElementById('instructions-modal'); // Selecting the modal
 let modalBtn = document.getElementById('instructions-button'); // Selecting the modal button
 
