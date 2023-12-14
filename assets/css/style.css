@@ -16,7 +16,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding-top: 100px;
 }
 
 /* Reuse style */
@@ -189,6 +189,7 @@ main {
 /* Modal */
 aside .button {
   margin-top: 50px;
+  margin-bottom: 15px;
 }
 
 .modal {
