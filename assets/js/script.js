@@ -160,7 +160,7 @@ function paragraphHint() {
 
 // Grab the input and check if the letter is in the word
 btnInput.addEventListener('click', function () {
-  originalInputValue = letterInput.value;
+  originalInputValue = letterInput.value.toLowerCase();
   letterInput.value = '';
   let charFound = false;
 
