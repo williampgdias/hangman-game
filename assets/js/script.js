@@ -158,6 +158,12 @@ function paragraphHint() {
   hint.appendChild(hintParagraph);
 }
 
+function keydownEnter(e) {
+  if (e.key === 'Enter') {
+    btnInput.click();
+  }
+}
+
 // Grab the input and check if the letter is in the word
 btnInput.addEventListener('click', function () {
   originalInputValue = letterInput.value.toLowerCase();
@@ -195,11 +201,7 @@ btnInput.addEventListener('click', function () {
 });
 
 // Event Listener for the input field to handle "Enter" key
-letterInput.addEventListener('keydown', function (e) {
-  if (e.key === 'Enter') {
-    btnInput.click();
-  }
-});
+letterInput.addEventListener('keydown', keydownEnter);
 
 // Setting Event Listener to Reset the game
 restartButton.addEventListener('click', function () {
