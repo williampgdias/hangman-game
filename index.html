@@ -24,9 +24,9 @@
 <body>
   <section class="game">
     <h1 class="title">hangman game</h1>
-    <aside class="hangman-img">
-      <img src="./assets/images/hangman-0.svg" alt="">
-    </aside>
+    <div class="hangman-img">
+      <img src="./assets/images/hangman-0.svg" alt="Picture of the wooden pole of the game.">
+    </div>
     <main>
       <h2 class="game-over">game over!</h2>
       <h2 class="congrats">Congratulations!!</h2>
@@ -43,9 +43,7 @@
           <input name="letter" id="letter" type="text" class="input-letter" maxlength="1">
           <button class="button" id="btn-input">Enter</button>
         </div>
-        <div>
-          <button class="button" id="btn-restart">Start again</button>
-        </div>
+
 
       </div>
       <span class="error-letter">Please, enter a valid letter!</span>
@@ -53,6 +51,10 @@
   </section>
 
   <aside>
+    <div>
+      <button class="button" id="btn-restart">Start again</button>
+    </div>
+
     <a class="button" id="instructions-button">Instructions</a>
 
     <!-- Modal -->

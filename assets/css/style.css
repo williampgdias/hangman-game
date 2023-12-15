@@ -186,10 +186,18 @@ main {
   color: #818181;
 }
 
+aside {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Modal */
 aside .button {
-  margin-top: 50px;
   margin-bottom: 15px;
+  margin-left: 2.5rem;
 }
 
 .modal {
