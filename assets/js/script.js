@@ -24,6 +24,7 @@ let guesses = 0; // Setting the number of guesses
 let originalInputValue; // Declaring originalInputValue
 let randomWord = getRandomWord(); // Get a random word
 let hintParagraph = document.createElement('p');
+let charFound;
 
 // Function to initiate everything that needs when you start the game
 function init() {
@@ -104,7 +105,7 @@ function clearBoxes() {
   letterBoxes = [];
 }
 
-// Setting logic to change the picture when you miss the guess
+// Function to change the picture when you miss the guess
 function changeImage() {
   let img = hangmanImg;
   let maxGuesses = 7;
@@ -158,19 +159,7 @@ function paragraphHint() {
   hint.appendChild(hintParagraph);
 }
 
-function keydownEnter(e) {
-  if (e.key === 'Enter') {
-    btnInput.click();
-  }
-}
-
-// Grab the input and check if the letter is in the word
-btnInput.addEventListener('click', function () {
-  originalInputValue = letterInput.value.toLowerCase();
-  letterInput.value = '';
-  let charFound = false;
-
-  // Check each letter in the word
+function updateLetterBoxes() {
   for (let i = 0; i < randomWord.name.length; i++) {
     const currentLetter = randomWord.name[i];
 
@@ -181,6 +170,22 @@ btnInput.addEventListener('click', function () {
       alphabeticLetters();
     }
   }
+}
+
+function keydownEnter(e) {
+  if (e.key === 'Enter') {
+    btnInput.click();
+  }
+}
+
+// Grab the input and check if the letter is in the word
+btnInput.addEventListener('click', function () {
+  originalInputValue = letterInput.value.toLowerCase();
+  letterInput.value = '';
+  charFound = false;
+
+  // Check each letter in the word
+  updateLetterBoxes();
 
   // If the pressed key is not in the word, add to incorrectLetters array and show in the screen.
   if (
