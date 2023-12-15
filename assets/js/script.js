@@ -72,6 +72,7 @@ function resetGame() {
   hint.style.display = 'none';
 
   hangmanImg.src = './assets/images/hangman-0.svg';
+  hangmanImg.alt = 'Picture of the wooden pole of the game.';
 
   letterInput.disabled = false;
   letterInput.classList.remove('disabled');
@@ -114,6 +115,7 @@ function changeImage() {
     let i = guesses;
 
     img.src = `./assets/images/hangman-${i}.svg`;
+    img.alt = `Picture of the ${i}º stage of the game.`;
   }
 }
 
@@ -145,6 +147,7 @@ function handleGuessResult() {
     gameOver.style.display = 'block';
 
     hangmanImg.src = './assets/images/hangman-6.svg';
+    hangmanImg.alt = 'Picture of the 6º stage of the game.';
 
     // Disable the input Text, so the user can't add letter anymore.
     letterInput.disabled = true;
