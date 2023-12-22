@@ -26,9 +26,6 @@
     padding: 10px 20px;
     font-size: 0.85rem;
   }
-  .button:hover {
-    color: inherit;
-  }
   .input-block label,
   .wrong-letters_guesses > div:nth-child(1),
   .wrong-letters_guesses > div:nth-child(2) {
@@ -62,7 +59,7 @@
 
 @media screen and (max-width: 400px) {
   .hangman-img img {
-    max-width: 150px;
+    max-width: 250px;
   }
   .game-over,
   .congrats {
