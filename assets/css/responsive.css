@@ -1,0 +1,101 @@
+@media screen and (max-width: 940px) {
+  body {
+    padding-top: 40px;
+  }
+  .title {
+    margin-bottom: 50px;
+  }
+
+  /* Modal */
+  .close {
+    font-size: 25px;
+  }
+  .modal-header h3 {
+    font-size: 1rem;
+  }
+  .modal-body p {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .hangman-img img {
+    max-width: 300px;
+  }
+  .button {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+  .input-block label,
+  .wrong-letters_guesses > div:nth-child(1),
+  .wrong-letters_guesses > div:nth-child(2) {
+    font-size: 0.75rem;
+  }
+  .input-block label {
+    line-height: 0.9rem;
+  }
+  .error-letter {
+    font-size: 0.7rem;
+  }
+  .btn-input-div {
+    flex-wrap: wrap;
+  }
+  .input-letter {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Modal */
+  .close {
+    font-size: 22px;
+  }
+  .modal-header h3 {
+    font-size: 0.9rem;
+  }
+  .modal-body p {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .hangman-img img {
+    max-width: 250px;
+  }
+  .game-over,
+  .congrats {
+    margin-bottom: 40px;
+    font-size: 0.9rem;
+  }
+  .button {
+    font-size: 0.8rem;
+  }
+  .hint {
+    font-size: 0.65rem;
+  }
+  .input-block label {
+    font-size: 0.7rem;
+  }
+  .word-box,
+  .input-letter {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  #instructions-button {
+    margin-top: 30px;
+  }
+  aside {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  aside .button {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  /* Modal */
+  .modal-body p {
+    font-size: 0.7rem;
+  }
+}
