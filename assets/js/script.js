@@ -26,13 +26,19 @@ let randomWord = getRandomWord(); // Get a random word
 let hintParagraph = document.createElement('p');
 let charFound;
 
-// Function to initiate everything that needs when you start the game
+/**
+ * Function to initiate everything
+ * that needs when you start the game
+ */
 function init() {
   createBoxes(randomWord);
   paragraphHint();
 }
 
-// Check if the input contains only alphabetic characters
+/**
+ * Check if the input contains
+ * only alphabetic characters
+ */
 function alphabeticLetters() {
   const isAlphabetic = /^[a-zA-Z]$/.test(originalInputValue);
 
@@ -45,19 +51,23 @@ function alphabeticLetters() {
   return isAlphabetic;
 }
 
-// Function to get a random word
+/**
+ * Function to get a random word
+ */
 function getRandomWord() {
   const randomIndex = Math.floor(Math.random() * words.length);
   return words[randomIndex];
 }
 
-// Function to see if the user wins.
+/**
+ * Function to see if the user wins.
+ */
 function isWordGuessed() {
   return letterBoxes.every((box) => box.textContent !== '');
 }
 
 /**
- * This function reset everything in the game to the user guess the word again.
+ * Function to reset everything in the game to the user guess the word again.
  * Everything goes to the default configs.
  */
 function resetGame() {
@@ -90,7 +100,9 @@ function resetGame() {
   randomWord = newRandomWord;
 }
 
-// Create empty boxes for each letter in the word
+/**
+ * Create empty boxes for each letter in the word
+ */
 function createBoxes(random) {
   random.name.split('').forEach((letter) => {
     let letterBox = document.createElement('div');
@@ -100,13 +112,17 @@ function createBoxes(random) {
   });
 }
 
-// Function to clear the boxes
+/**
+ * Function to clear the boxes
+ */
 function clearBoxes() {
   wordBoxWrapped.innerHTML = '';
   letterBoxes = [];
 }
 
-// Function to change the picture when you miss the guess
+/**
+ *Function to change the picture when you miss the guess
+ */
 function changeImage() {
   let img = hangmanImg;
   let maxGuesses = 7;
@@ -158,11 +174,17 @@ function handleGuessResult() {
   }
 }
 
+/**
+ * Function to show the Hint
+ */
 function paragraphHint() {
   hintParagraph.textContent = `Hint: ${randomWord.hint}`;
   hint.appendChild(hintParagraph);
 }
 
+/**
+ * Function to update letter boxes
+ */
 function updateLetterBoxes() {
   for (let i = 0; i < randomWord.name.length; i++) {
     const currentLetter = randomWord.name[i];
@@ -182,7 +204,9 @@ function keydownEnter(e) {
   }
 }
 
-// Grab the input and check if the letter is in the word
+/**
+ * Grab the input and check if the letter is in the word
+ */
 btnInput.addEventListener('click', function () {
   originalInputValue = letterInput.value.toLowerCase();
   letterInput.value = '';
@@ -209,25 +233,35 @@ btnInput.addEventListener('click', function () {
   }
 });
 
-// Event Listener for the input field to handle "Enter" key
+/**
+ * Event Listener for the input field to handle "Enter" key
+ */
 letterInput.addEventListener('keydown', keydownEnter);
 
-// Setting Event Listener to Reset the game
+/**
+ * Setting Event Listener to Reset the game
+ */
 restartButton.addEventListener('click', function () {
   resetGame();
 });
 
-// When the user clicks the Instructions button, open the modal
+/**
+ * When the user clicks the Instructions button, open the modal
+ */
 modalBtn.addEventListener('click', function () {
   modal.style.display = 'block';
 });
 
-// When the user clicks on X, close the modal
+/**
+ * When the user clicks on X, close the modal
+ */
 modalClose.addEventListener('click', function () {
   modal.style.display = 'none';
 });
 
-// When the user clocks anywhere outside of the modal, close it
+/**
+ * When the user clocks anywhere outside of the modal, close it
+ */
 window.addEventListener('click', function (e) {
   if (e.target === modal) {
     modal.style.display = 'none';
