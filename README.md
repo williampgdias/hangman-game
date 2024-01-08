@@ -12,9 +12,13 @@ The Hangman Game project is designed with features that cater to the needs of bo
 
 The landing page image serves as the first visual encounter, making a striking impression and providing a quick insight into the Hangman Game's interface and gameplay. It's a key element for users to relate to the atmosphere of the game.
 
+![Landing Page](assets/screenshots/landing-page.png)
+
 ## Game Controls
 
 The Game Controls section centralizes details regarding how to play, and other game-specific information, offering a seamless and clear pathway for players to understand and enjoy the game.
+
+![Game Controls](assets/screenshots/game-controls.png)
 
 ## Overview
 
@@ -118,12 +122,17 @@ Hangman Game has undergone thorough functional testing to ensure that all featur
 
 ### Validator Testing
 
-- **HTML:** No errors were returned when padding through the official W3C validator.
+- **HTML:** No errors were returned when passing through the official W3C validator.
 
   - [Result](https://validator.w3.org/nu/?doc=https%3A%2F%2Fwilliampgdias.github.io%2Fhangman-game%2F)
 
 - **CSS:** No errors were found when passing through the official (Jigsaw) validator.
+
   - [Result](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fwilliampgdias.github.io%2Fhangman-game%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+- **JS Hint:** No errors were found when passing through the official
+
+  ![JS Hint](assets/screenshots/js-hint.png)
 
 ### Overall Impressions
 
@@ -140,3 +149,82 @@ The project has been tested on various browsers, including Chrome, Firefox, Safa
 ## How to Play
 
 To embark on a journey of word discovery, simply visit the [Hangman Game website](https://williampgdias.github.io/hangman-game/) and follow the instructions provided to start playing. Enjoy the challenge, have fun, and may the words be ever in your favor!
+
+## Deployment
+
+### Step 1: Create a Repository
+
+1. **Login to GitHub:** Visit [GitHub](https://github.com) and log in to the account.
+2. **Create a New Repository:**
+
+   - Click on the '+' icon in the top right corner of your GitHub profile.
+   - Select "New repository."
+
+3. **Repository Configuration:**
+   - Name the repository.
+   - Ensure the repository is public.
+   - Click the "Create repository" button to finalize.
+
+### Step 2: Upload the Files
+
+4. **Upload The Website Files:**
+   - On the newly created repository page, add your website files (HTML, CSS, images, etc.) into the repository by clicking in Upload or Drag the folder into the page.
+
+### Step 3: Enable GitHub Pages
+
+5. **Access Repository Settings:**
+
+   - Inside the repository, go to the "Settings" tab.
+
+6. **GitHub Pages Section:**
+
+   - Scroll down to the GitHub Pages section.
+   - Under "Source," select the branch containing your website files.
+   - Save the changes.
+
+7. **Confirmation:**
+
+   - GitHub will display the URL where your site is published.
+
+8. **Wait for Deployment:**
+   - GitHub Pages might take a few minutes to deploy the site. Once deployed, the website will be live at the provided URL.
+
+### Step 4: Access Your Published Site
+
+9. **Visit The Published Site:**
+   - Access the website using the provided URL.
+   - Ensure the content displays correctly.
+
+This process will enable to publish and maintain the website using GitHub Pages.
+
+<!-- Deployment ends -->
+
+<!-- How to edit the repository starts -->
+
+### Making Changes on the Project
+
+Whenever changes are made to the project, the developer commits these changes with a descriptive message. This helps other developers understand the project's development progress and assists the developer in keeping track of project changes.
+
+The following steps are followed to manage project changes:
+
+1. **Git add .:** Updates made to the project are included using this command. It stages the changes for the next commit.
+
+2. **Git commit -m "Your commit message here":** After staging the changes, this command is used to capture a snapshot of the project's currently staged changes with a descriptive commit message.
+
+3. **Git push:** This command is used to upload the local repository content to a remote repository. It transfers commits from the local repository to a remote repository, allowing for collaboration and version control.
+
+These steps ensure that the project is regularly updated and documented to facilitate seamless collaboration and development.
+
+<!-- How to edit the repository ends -->
+
+<!-- Credits starts -->
+
+## Credits
+
+In the development of Hangman Game, we acknowledge and provide credit to the following sources for their valuable contributions:
+
+### W3Schools
+
+- To code the modal content, we check the tutorial that was on W3Schools website.
+
+We express our gratitude to these sources for their contributions to our project.
