@@ -19,6 +19,7 @@
 }
 
 @media screen and (max-width: 750px) {
+  /* Hangman Image */
   .hangman-img img {
     max-width: 300px;
   }
@@ -26,6 +27,8 @@
     padding: 10px 20px;
     font-size: 0.85rem;
   }
+
+  /* Input */
   .input-block label,
   .wrong-letters_guesses > div:nth-child(1),
   .wrong-letters_guesses > div:nth-child(2) {
@@ -34,15 +37,15 @@
   .input-block label {
     line-height: 0.9rem;
   }
+  .input-letter {
+    width: 50px;
+    height: 50px;
+  }
   .error-letter {
     font-size: 0.7rem;
   }
   .btn-input-div {
     flex-wrap: wrap;
-  }
-  .input-letter {
-    width: 50px;
-    height: 50px;
   }
 
   /* Modal */
@@ -58,9 +61,12 @@
 }
 
 @media screen and (max-width: 400px) {
+  /* Hangman Image */
   .hangman-img img {
     max-width: 250px;
   }
+
+  /* Game Over/Win message */
   .game-over,
   .congrats {
     margin-bottom: 40px;
@@ -75,6 +81,8 @@
   .input-block label {
     font-size: 0.7rem;
   }
+
+  /* Word-box */
   .word-box,
   .input-letter {
     width: 40px;
