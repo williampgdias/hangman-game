@@ -22,11 +22,24 @@
 </head>
 
 <body>
+  <!-- Main content -->
   <main class="game">
     <h1 class="title">hangman game</h1>
+    <!-- Hangman Image -->
     <div class="hangman-img">
       <img src="./assets/images/hangman-0.svg" alt="Picture of the wooden pole of the game." width="298" height="291">
     </div>
+
+    <!-- 
+      Content of:
+      Message of Game over / Congratulations,
+      Words,
+      Hint,
+      Wrong letters,
+      Boxes of the guessed letters,
+      Input letter for guess,
+      Error message if the user put a different character than letter.
+    -->
     <section>
       <h2 class="game-over">game over!</h2>
       <h2 class="congrats">Congratulations!!</h2>
@@ -43,13 +56,13 @@
           <input name="letter" id="letter" type="text" class="input-letter" maxlength="1">
           <button class="button" id="btn-input">Enter</button>
         </div>
-
-
       </div>
+
       <span class="error-letter">Please, enter a valid letter!</span>
     </section>
   </main>
 
+  <!-- Start again and Instructions buttons -->
   <aside>
     <div>
       <button class="button" id="btn-restart">Start again</button>
